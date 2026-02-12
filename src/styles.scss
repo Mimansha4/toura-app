@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+/* ========================================= */
+/* ANGULAR MATERIAL (Material 3) THEME SETUP */
+/* ========================================= */
+
+@use '@angular/material' as mat;
+
+/* Apply Material theme */
+html {
+  height: 100%;
+
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  /* Light theme */
+  color-scheme: light;
+
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  margin: 0;
+  height: 100%;
+}
+
+
+/* ========================================= */
+/* LEAFLET MAP CSS (CRITICAL FOR MAP) */
+/* ========================================= */
+
+/* Must be after Material theme */
+@import "leaflet/dist/leaflet.css";
+
+
+/* ========================================= */
+/* GLOBAL RESET */
+/* ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+
+/* ========================================= */
+/* SCROLLBAR POLISH (OPTIONAL) */
+/* ========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* ========================================= */
+/* GLOBAL BUTTON SMOOTHNESS */
+/* ========================================= */
+
+button {
+  transition: all 0.3s ease;
+}
+
+
+/* ========================================= */
+/* MATERIAL FORM FIELD WIDTH FIX */
+/* ========================================= */
+
+.mat-mdc-form-field {
+  width: 100%;
+}

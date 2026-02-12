@@ -1,0 +1,72 @@
+<div class="auth-wrapper">
+  <mat-card class="auth-card" @fadeUp>
+    <h2>Create Account</h2>
+    <p>Join Toura and travel smarter.</p>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+          Minimum 6 characters required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Origin Country</mat-label>
+        <input matInput formControlName="country" />
+        <mat-error *ngIf="signupForm.get('country')?.touched && signupForm.get('country')?.invalid">
+          Country is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+  <mat-label>Phone Number</mat-label>
+  <input
+    matInput
+    type="tel"
+    formControlName="phone"
+    inputmode="numeric"
+    pattern="[0-9]*"
+    maxlength="15"
+    (keypress)="allowOnlyNumbers($event)"
+  />
+  <mat-error *ngIf="signupForm.get('phone')?.touched && signupForm.get('phone')?.invalid">
+    Enter a valid phone number (digits only)
+  </mat-error>
+</mat-form-field>
+
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="full"
+        type="submit">
+        Sign Up
+      </button>
+
+    </form>
+
+    <p class="switch">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </mat-card>
+</div>

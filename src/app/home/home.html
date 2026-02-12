@@ -1,0 +1,66 @@
+<!-- TOP NAVBAR -->
+<mat-toolbar color="primary">
+  <span style="font-weight: bold; font-size: 20px">TOURA</span>
+  <span style="flex: 1"></span>
+
+  <!-- CONNECTED BUTTONS -->
+  <button mat-button routerLink="/login">Login</button>
+  <button mat-raised-button color="accent" routerLink="/signup">
+    Sign Up
+  </button>
+</mat-toolbar>
+
+<!-- HERO SECTION -->
+<div class="hero">
+  <!-- OPTIONAL MAP PINS (if you already added them) -->
+  <div class="map-pin pin-1"></div>
+  <div class="map-pin pin-2"></div>
+  <div class="map-pin pin-3"></div>
+
+  <!-- HERO CARD -->
+  <mat-card class="hero-card" @fadeScale>
+    <h1>Travel Smart. Stay Safe.</h1>
+    <p>
+      Get real-time scam alerts and connect with travellers from your country.
+    </p>
+
+    <div class="actions">
+      <!-- CONNECTED BUTTONS -->
+      <button mat-raised-button color="primary" routerLink="/signup">
+        Get Started
+      </button>
+      <button mat-button routerLink="/login">Login</button>
+    </div>
+  </mat-card>
+</div>
+
+<!-- FEATURES SECTION (NEW ATTRACTIVE ONE) -->
+<section class="features-section">
+  <h2 class="features-title">Why Toura?</h2>
+  <p class="features-subtitle">
+    Built to keep travellers safe and connected in unfamiliar places.
+  </p>
+
+  <div class="features-grid">
+    <div class="feature-box" @slideUp>
+      <div class="icon-circle warning">
+        <mat-icon>warning</mat-icon>
+      </div>
+      <h3>Scam Alerts Near You</h3>
+      <p>
+        Get real-time scam warnings reported by travellers at your current
+        location.
+      </p>
+    </div>
+
+    <div class="feature-box" @slideUp>
+      <div class="icon-circle people">
+        <mat-icon>people</mat-icon>
+      </div>
+      <h3>Connect with Travellers</h3>
+      <p>
+        Find and connect with travellers from your country who are nearby.
+      </p>
+    </div>
+  </div>
+</section>

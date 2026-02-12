@@ -1,0 +1,97 @@
+<!-- ================= MAP SECTION ================= -->
+
+<div class="map-wrapper">
+  <div id="map"></div>
+</div>
+
+<!-- Floating Report Button (outside map) -->
+<button class="report-btn" (click)="openModal()">
+  + Report a Scam
+</button>
+
+
+<!-- ================= TOP 5 SCAMS SECTION ================= -->
+
+<section class="news-section">
+  <h2>🚨 Top 5 Scam Alerts Near You</h2>
+
+  <div class="news-grid">
+    <div
+      class="news-card"
+      *ngFor="let scam of scams; let i = index"
+      [style.animationDelay]="i * 0.15 + 's'"
+    >
+      <div class="card-header">
+        <span class="scam-id">Scam #{{ scam.id }}</span>
+        <span class="badge">{{ scam.type }}</span>
+      </div>
+
+      <p class="description">
+        Location flagged by multiple travellers in this area.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= OVERLAY ================= -->
+
+<div
+  class="overlay"
+  *ngIf="showModal"
+  (click)="closeModal()">
+</div>
+
+
+<!-- ================= MODAL ================= -->
+
+<div
+  class="modal-container"
+  *ngIf="showModal"
+  @modalAnimation>
+
+  <div class="modal-card" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h2>Report a Scam</h2>
+      <span class="close-btn" (click)="closeModal()">✕</span>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="submitReport()">
+
+      <label>Scam Type</label>
+      <select formControlName="type">
+        <option value="">Select Type</option>
+        <option *ngFor="let type of scamTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+
+      <div *ngIf="isOtherSelected()">
+        <label>Title</label>
+        <input
+          type="text"
+          placeholder="Enter scam title"
+          formControlName="title"
+        />
+      </div>
+
+      <label>Description</label>
+      <textarea
+        placeholder="Describe what happened..."
+        formControlName="description"
+      ></textarea>
+
+      <div class="modal-actions">
+        <button type="button" class="cancel-btn" (click)="closeModal()">
+          Cancel
+        </button>
+        <button type="submit" class="submit-btn">
+          Submit Report
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
