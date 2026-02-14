@@ -1,23 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ScamMapComponent } from './scam-map';
+import { provideHttpClient } from '@angular/common/http';
+import { PLATFORM_ID } from '@angular/core';
 
-import { ScamMap } from './scam-map';
+describe('ScamMapComponent', () => {
 
-describe('ScamMap', () => {
-  let component: ScamMap;
-  let fixture: ComponentFixture<ScamMap>;
+  let component: ScamMapComponent;
+  let fixture: ComponentFixture<ScamMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScamMap]
-    })
-    .compileComponents();
+      imports: [ScamMapComponent],   // standalone component
+      providers: [
+        provideHttpClient(),
+        { provide: PLATFORM_ID, useValue: 'browser' }
+      ]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(ScamMap);
+    fixture = TestBed.createComponent(ScamMapComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
+

@@ -1,97 +1,153 @@
-<!-- ================= MAP SECTION ================= -->
+<div class="page-container">
 
-<div class="map-wrapper">
-  <div id="map"></div>
-</div>
+  <!-- ================= MAP SECTION ================= -->
+  <div class="map-section">
+    <div id="map"></div>
 
-<!-- Floating Report Button (outside map) -->
-<button class="report-btn" (click)="openModal()">
-  + Report a Scam
-</button>
+    <button class="report-btn" (click)="openModal()">
+      🚨 Report a Scam
+    </button>
+  </div>
 
+  <!-- ================= TOP 5 STATS SECTION ================= -->
+  <div class="stats-section">
 
-<!-- ================= TOP 5 SCAMS SECTION ================= -->
+    <div class="stats-container">
 
-<section class="news-section">
-  <h2>🚨 Top 5 Scam Alerts Near You</h2>
+      <h2 class="stats-title">🔥 Top 5 Scams (By Reports)</h2>
 
-  <div class="news-grid">
-    <div
-      class="news-card"
-      *ngFor="let scam of scams; let i = index"
-      [style.animationDelay]="i * 0.15 + 's'"
-    >
-      <div class="card-header">
-        <span class="scam-id">Scam #{{ scam.id }}</span>
-        <span class="badge">{{ scam.type }}</span>
+      <div *ngIf="topScams.length > 0; else noData" class="stats-grid">
+
+        <div
+          class="stat-card"
+          *ngFor="let scam of topScams; let i = index"
+          [ngClass]="'type-' + scam.type"
+          [style.animationDelay]="i * 0.15 + 's'">
+
+          <div class="rank-badge">
+            #{{ i + 1 }}
+          </div>
+
+          <div class="stat-content">
+            <div class="stat-type">{{ scam.type }}</div>
+
+            <div class="stat-count">
+              <span class="count-number">
+                {{ animatedCounts[i] ?? scam.count }}
+              </span>
+              reports
+            </div>
+
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                [style.width.%]="(scam.count / topScams[0].count) * 100">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-      <p class="description">
-        Location flagged by multiple travellers in this area.
-      </p>
+      <ng-template #noData>
+        <p>No scam reports yet.</p>
+      </ng-template>
+
     </div>
+
   </div>
-</section>
 
+  <!-- ================= SAFETY GUIDE SECTION ================= -->
+  <div class="guide-section">
 
-<!-- ================= OVERLAY ================= -->
+    <h2 class="guide-title">🛡 Scam Safety Guide</h2>
 
-<div
-  class="overlay"
-  *ngIf="showModal"
-  (click)="closeModal()">
+    <div class="guide-container">
+
+      <div class="guide-card"
+           *ngFor="let guide of scamGuides; let i = index"
+           (click)="toggleGuide(i)">
+
+        <div class="guide-header">
+          {{ guide.title }}
+          <span class="arrow" [class.rotate]="guide.open">▼</span>
+        </div>
+
+        <div class="guide-body" *ngIf="guide.open">
+
+          <h4>Precautions</h4>
+          <ul>
+            <li *ngFor="let p of guide.precautions">{{ p }}</li>
+          </ul>
+
+          <h4>If It Happens</h4>
+          <ul>
+            <li *ngFor="let a of guide.actions">{{ a }}</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 
 <!-- ================= MODAL ================= -->
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal-content">
 
-<div
-  class="modal-container"
-  *ngIf="showModal"
-  @modalAnimation>
-
-  <div class="modal-card" (click)="$event.stopPropagation()">
-
-    <div class="modal-header">
-      <h2>Report a Scam</h2>
-      <span class="close-btn" (click)="closeModal()">✕</span>
-    </div>
-
+    <h3>Report a Scam</h3>
     <form [formGroup]="reportForm" (ngSubmit)="submitReport()">
 
-      <label>Scam Type</label>
-      <select formControlName="type">
-        <option value="">Select Type</option>
-        <option *ngFor="let type of scamTypes" [value]="type">
-          {{ type }}
-        </option>
-      </select>
+  <!-- Select Scam -->
+  <select
+    formControlName="type"
+    [class.invalid]="reportForm.get('type')?.touched && reportForm.get('type')?.invalid">
 
-      <div *ngIf="isOtherSelected()">
-        <label>Title</label>
-        <input
-          type="text"
-          placeholder="Enter scam title"
-          formControlName="title"
-        />
-      </div>
+    <option value="" disabled>Select Scam</option>
 
-      <label>Description</label>
-      <textarea
-        placeholder="Describe what happened..."
-        formControlName="description"
-      ></textarea>
+    <option *ngFor="let type of scamTypes" [value]="type">
+      {{ type }}
+    </option>
+  </select>
 
-      <div class="modal-actions">
-        <button type="button" class="cancel-btn" (click)="closeModal()">
-          Cancel
-        </button>
-        <button type="submit" class="submit-btn">
-          Submit Report
-        </button>
-      </div>
+  <!-- Error for Select -->
+  <div class="error-text"
+       *ngIf="reportForm.get('type')?.touched &&
+              reportForm.get('type')?.invalid">
+    Please select a scam type.
+  </div>
 
-    </form>
+
+  <!-- Description -->
+  <textarea
+    formControlName="description"
+    placeholder="Minimum 10 characters"
+    [class.invalid]="reportForm.get('description')?.touched &&
+                     reportForm.get('description')?.invalid">
+  </textarea>
+
+  <!-- Error for Description -->
+  <div class="error-text"
+       *ngIf="reportForm.get('description')?.touched &&
+              reportForm.get('description')?.errors?.['minlength']">
+    Minimum 10 characters required.
+  </div>
+
+
+  <div class="modal-buttons">
+    <button type="button" (click)="closeModal()">Cancel</button>
+    <button type="submit">Submit</button>
+  </div>
+
+</form>
+
+    
 
   </div>
 </div>
