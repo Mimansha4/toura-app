@@ -141,3 +141,120 @@
   color: #2196f3;
 }
 
+
+.icon-circle.language {
+  background: #4caf50; /* green */
+}
+
+.icon-circle.currency {
+  background: #ff9800; /* orange */
+}
+
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.hero-card {
+  max-width: 520px;
+  padding: 48px 40px;
+  text-align: center;
+
+  /* Glassy / premium look */
+  // background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+
+  /* Elevation */
+  border-radius: 20px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+
+  /* Center inside hero */
+  margin: 0 auto;
+}
+
+
+.hero-card h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-card p {
+  font-size: 1.05rem;
+  color: #897fc9;
+  margin-bottom: 32px;
+}
+
+
+.hero-card .actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-card button {
+  min-width: 140px;
+}
+
+// .hero-card {
+//   transition: transform 0.35s ease, box-shadow 0.35s ease;
+// }
+
+// .hero-card:hover {
+//   transform: translateY(-6px);
+//   box-shadow:
+//     0 28px 60px rgba(0, 0, 0, 0.18),
+//     0 12px 24px rgba(0, 0, 0, 0.12);
+// }
+
+
+// .hero-card {
+//   background: rgba(255, 255, 255, 0.97);
+//   color: #1f2937; /* dark slate */
+// }
+
+
+// .hero-card h1 {
+//   color: #111827; /* almost black */
+// }
+
+// .hero-card p {
+//   color: #4b5563; /* neutral gray */
+// }
+
+
+// .hero-card .actions button[mat-raised-button] {
+//   background-color: #2563eb; /* blue */
+//   color: #fff;
+// }
+
+// .hero-card .actions button[mat-button] {
+//   color: #2563eb;
+//   font-weight: 500;
+// }
+
+
+// .feature-box {
+//   background: rgba(255, 255, 255, 0.08);
+//   backdrop-filter: blur(10px);
+
+//   border-radius: 20px;
+//   padding: 36px 32px;
+//   text-align: center;
+
+//   box-shadow:
+//     0 20px 40px rgba(0, 0, 0, 0.25),
+//     inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+//   transition: transform 0.35s ease, box-shadow 0.35s ease;
+// }
+

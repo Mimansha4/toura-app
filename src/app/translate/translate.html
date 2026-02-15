@@ -1,0 +1,71 @@
+<!-- <div class="translate-container"> -->
+    <div class="page-wrapper">
+  <div class="translate-container">
+  <h2>Language Translator</h2>
+
+  <div class="translator-grid">
+
+    <!-- Source -->
+    <div class="panel">
+      <label>
+        Source Language
+        <select [(ngModel)]="sourceLanguage">
+          <option *ngFor="let lang of languages" [value]="lang.value">
+            {{ lang.label }}
+          </option>
+        </select>
+      </label>
+
+      <textarea
+        rows="8"
+        [(ngModel)]="text"
+        placeholder="Enter text to translate">
+      </textarea>
+    </div>
+
+    <!-- Swap Button -->
+    <button
+      class="swap-btn"
+      (click)="swapLanguages()"
+      title="Swap languages">
+      ⇄
+    </button>
+
+    <!-- Target -->
+    <div class="panel">
+      <label>
+        Target Language
+        <select [(ngModel)]="targetLanguage">
+          <option *ngFor="let lang of languages" [value]="lang.value">
+            {{ lang.label }}
+          </option>
+        </select>
+      </label>
+
+      <div class="output-wrapper">
+
+  <div *ngIf="loading && !translatedText" class="spinner"></div>
+
+  <textarea
+    *ngIf="translatedText"
+    rows="8"
+    class="fade-in"
+    [value]="translatedText"
+    readonly>
+  </textarea>
+
+</div>
+
+
+    </div>
+
+  </div>
+
+  <button
+    class="translate-btn"
+    (click)="translate()"
+    [disabled]="loading || !text.trim()">
+    {{ loading ? 'Translating…' : 'Translate' }}
+  </button>
+</div>
+</div>
