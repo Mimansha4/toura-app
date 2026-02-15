@@ -1,1 +1,85 @@
-@import '../login/login.scss';
+.auth-wrapper {
+  height: 100vh;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop')
+              no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Dark overlay + blur */
+.auth-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+  pointer-events: none; 
+}
+
+/* Card */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: 400px;
+  padding: 45px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* Heading spacing */
+.auth-card h2 {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+/* Subtitle */
+.auth-card p {
+  margin: 0 0 24px 0;
+  color: #555;
+}
+
+/* Form */
+.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+/* Button styling */
+button.mat-raised-button {
+  border-radius: 30px;
+  height: 15px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+button.mat-raised-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.5);
+}
+
+/* Switch link */
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.switch a {
+  color: #0072ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
