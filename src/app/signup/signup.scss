@@ -8,7 +8,11 @@
   justify-content: center;
   overflow: hidden;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 /* Dark overlay + blur */
 .auth-wrapper::before {
   content: '';
@@ -17,9 +21,15 @@
   backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.55);
   z-index: 0;
+<<<<<<< HEAD
   pointer-events: none; 
 }
 
+=======
+  pointer-events: none;
+}
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 /* Card */
 .auth-card {
   position: relative;
@@ -31,29 +41,46 @@
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
   text-align: center;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 /* Heading spacing */
 .auth-card h2 {
   margin: 0 0 12px 0;
   font-weight: 600;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 /* Subtitle */
 .auth-card p {
   margin: 0 0 24px 0;
   color: #555;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 /* Form */
 .full {
   width: 100%;
   margin-top: 10px;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 mat-form-field {
   width: 100%;
   margin-bottom: 2px;
 }
+<<<<<<< HEAD
 
 /* Button styling */
 button.mat-raised-button {
@@ -63,23 +90,49 @@ button.mat-raised-button {
   transition: 0.3s ease;
 }
 
+=======
+ 
+/* Button styling */
+button.mat-raised-button {
+  border-radius: 30px;
+  height: 45px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 button.mat-raised-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 114, 255, 0.5);
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 /* Switch link */
 .switch {
   margin-top: 20px;
   font-size: 14px;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16
 .switch a {
   color: #0072ff;
   font-weight: 500;
   text-decoration: none;
 }
+<<<<<<< HEAD
 
 .switch a:hover {
   text-decoration: underline;
 }
+=======
+ 
+.switch a:hover {
+  text-decoration: underline;
+}
+>>>>>>> 7137515658009f67c1666372566ee7119c8e8c16

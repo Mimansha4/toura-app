@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-
+ 
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -32,9 +32,9 @@ import { MatCardModule } from '@angular/material/card';
   ]
 })
 export class SignupComponent {
-
+ 
   signupForm: FormGroup;
-
+ 
   countries: string[] = [
     'India',
     'USA',
@@ -45,9 +45,9 @@ export class SignupComponent {
     'France',
     'Japan'
   ];
-
+ 
   constructor(private fb: FormBuilder) {
-
+ 
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -59,16 +59,16 @@ export class SignupComponent {
       ]]
     });
   }
-
+ 
   onSubmit(): void {
-
+ 
     if (this.signupForm.invalid) {
       this.signupForm.markAllAsTouched();
       return;
     }
-
+ 
     console.log('Signup Data:', this.signupForm.value);
-
+ 
     alert('Signup Successful!');
     this.signupForm.reset();
   }

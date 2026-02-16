@@ -42,7 +42,7 @@
   </p>
 
   <div class="features-grid">
-    <div class="feature-box" @slideUp>
+    <div class="feature-box" @slideUp routerLink="/scam-map">
       <div class="icon-circle warning">
         <mat-icon>warning</mat-icon>
       </div>
@@ -53,7 +53,7 @@
       </p>
     </div>
 
-    <div class="feature-box" @slideUp>
+    <div class="feature-box" @slideUp routerLink="/login">
       <div class="icon-circle people">
         <mat-icon>people</mat-icon>
       </div>
@@ -62,5 +62,27 @@
         Find and connect with travellers from your country who are nearby.
       </p>
     </div>
+
+    <div class="feature-box" @slideUp routerLink="/translate">
+  <div class="icon-circle language">
+    <mat-icon>translate</mat-icon>
+  </div>
+  <h3>Language Translation</h3>
+  <p>
+    Instantly translate local languages to communicate easily wherever you go.
+  </p>
+</div>
+
+<div class="feature-box" @slideUp routerLink="/currency">
+  <div class="icon-circle currency">
+    <mat-icon>currency_exchange</mat-icon>
+  </div>
+  <h3>Currency Converter</h3>
+  <p>
+    Convert local currencies in real time so you always know what you’re paying.
+  </p>
+</div>
+
+
   </div>
 </section>

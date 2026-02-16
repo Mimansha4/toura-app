@@ -8,7 +8,6 @@
   justify-content: center;
   overflow: hidden;
 }
-
 /* Dark overlay + blur */
 .auth-wrapper::before {
   content: '';
@@ -18,7 +17,6 @@
   background: rgba(0, 0, 0, 0.55);
   z-index: 0;
 }
-
 /* Card */
 .auth-card {
   position: relative;
@@ -80,6 +78,59 @@ mat-form-field {
   text-decoration: none;
 }
 
+.switch a:hover {
+  text-decoration: underline;
+}
+ 
+/* Heading spacing */
+.auth-card h2 {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+ 
+/* Subtitle */
+.auth-card p {
+  margin: 0 0 24px 0;
+  color: #555;
+}
+ 
+/* Make button full width */
+.full {
+  width: 100%;
+  margin-top: 10px;
+}
+ 
+/* Improve button look */
+button.mat-raised-button {
+  border-radius: 30px;
+  height: 45px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+ 
+button.mat-raised-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.5);
+}
+ 
+/* Improve spacing between fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 8px;
+}
+ 
+/* Signup link */
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+}
+ 
+.switch a {
+  color: #0072ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+ 
 .switch a:hover {
   text-decoration: underline;
 }

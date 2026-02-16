@@ -10,7 +10,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
-
+ 
 @Component({
   selector: 'app-login',
   standalone: true,

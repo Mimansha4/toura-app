@@ -1,0 +1,75 @@
+<div class="page-wrapper">
+  <div class="translate-container">
+
+    <h2>Currency Converter</h2>
+
+    <div class="translator-grid">
+
+      <!-- Source Currency -->
+      <div class="panel">
+        <label>
+          From Currency
+          <select [(ngModel)]="fromCurrency">
+            <option *ngFor="let c of currencies" [value]="c.value">
+              {{ c.label }}
+            </option>
+          </select>
+        </label>
+
+        <textarea
+          rows="8"
+          type="number"
+          [(ngModel)]="amount"
+          placeholder="Enter amount">
+        </textarea>
+      </div>
+
+      <!-- Swap Button -->
+      <button
+        class="swap-btn"
+        (click)="swapCurrencies()"
+        title="Swap currencies">
+        ⇄
+      </button>
+
+      <!-- Target Currency -->
+      <div class="panel">
+        <label>
+          To Currency
+          <select [(ngModel)]="toCurrency">
+            <option *ngFor="let c of currencies" [value]="c.value">
+              {{ c.label }}
+            </option>
+          </select>
+        </label>
+
+        <div class="output-wrapper">
+
+          <div *ngIf="loading()" class="spinner"></div>
+
+          <textarea
+            *ngIf="!loading()"
+            rows="8"
+            class="fade-in"
+            [value]="convertedAmount() ?? ''"
+            readonly>
+          </textarea>
+
+        </div>
+      </div>
+
+    </div>
+
+    <button
+      class="translate-btn"
+      (click)="convert()"
+      [disabled]="loading() || amount <= 0">
+      {{ loading() ? 'Converting…' : 'Convert' }}
+    </button>
+
+    <p *ngIf="exchangeRate()" style="margin-top: 1rem; color: #94a3b8;">
+      Exchange Rate: 1 {{ fromCurrency }} = {{ exchangeRate() }} {{ toCurrency }}
+    </p>
+
+  </div>
+</div>
