@@ -1,73 +1,85 @@
 .auth-wrapper {
   height: 100vh;
-  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-  background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000&auto=format&fit=crop')
+              no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+ 
+/* Dark overlay + blur */
+.auth-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
 }
+ 
+/* Card */
 .auth-card {
-  width: 360px;
-  padding: 40px;
-}
-
-
-.auth-wrapper {
-  height: 100vh;
-  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-  background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px; /* prevents edge cut on mobile */
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Card styling */
-.auth-card {
-  width: 100%;
-  max-width: 380px;
-  padding: 32px 28px; /* balanced inner spacing */
-  border-radius: 14px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-}
-
-/* Title spacing */
-.auth-card h2 {
+  position: relative;
+  z-index: 1;
+  width: 380px;
+  padding: 45px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
   text-align: center;
-  margin-bottom: 24px;
+}
+ 
+/* Heading spacing */
+.auth-card h2 {
+  margin: 0 0 12px 0;
   font-weight: 600;
 }
-
-/* Material form fields */
-.auth-card mat-form-field {
-  width: 100%;
-  margin-bottom: 14px;
+ 
+/* Subtitle */
+.auth-card p {
+  margin: 0 0 24px 0;
+  color: #555;
 }
-
-/* Button */
-.auth-card button {
-  margin-top: 12px;
-  height: 44px;
-  font-size: 15px;
+ 
+/* Make button full width */
+.full {
+  width: 100%;
+  margin-top: 10px;
+}
+ 
+/* Improve button look */
+button.mat-raised-button {
+  border-radius: 30px;
+  height: 45px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+ 
+button.mat-raised-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.5);
+}
+ 
+/* Improve spacing between fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 8px;
+}
+ 
+/* Signup link */
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+}
+ 
+.switch a {
+  color: #0072ff;
   font-weight: 500;
+  text-decoration: none;
+}
+ 
+.switch a:hover {
+  text-decoration: underline;
 }

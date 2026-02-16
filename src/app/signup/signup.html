@@ -1,68 +1,52 @@
-<div class="signup-wrapper">
-<mat-card class="signup-card">
-
-
-  
-  <h2>Sign Up</h2>
-  
-
-
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-
-    <!-- Name -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name">
-      <mat-error *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
-        Name is required
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Email -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email">
-      <mat-error *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
-        Enter valid email
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Password -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password">
-      <mat-error *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
-        Minimum 6 characters required
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Country -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Country</mat-label>
-      <mat-select formControlName="country">
-        <mat-option *ngFor="let country of countries" [value]="country">
-          {{ country }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="signupForm.get('country')?.touched && signupForm.get('country')?.invalid">
-        Country is required
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Phone -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Phone Number</mat-label>
-      <input matInput formControlName="phone">
-      <mat-error *ngIf="signupForm.get('phone')?.touched && signupForm.get('phone')?.invalid">
-        Enter 10 digit phone number
-      </mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit" class="full-width">
-      Sign Up
-    </button>
-
-  </form>
-
-</mat-card>
+<div class="auth-wrapper">
+  <mat-card class="auth-card">
+ 
+    <h2>Create Account</h2>
+    <p>Sign up to start using Toura.</p>
+ 
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+ 
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+ 
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+ 
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+ 
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+ 
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+ 
+      <button mat-raised-button color="primary" type="submit" class="full">
+        Sign Up
+      </button>
+ 
+    </form>
+ 
+    <!-- 🔥 MOVE THIS OUTSIDE FORM -->
+    <p class="switch">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+ 
+  </mat-card>
 </div>
+ 

@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login';
 import { SignupComponent } from './signup/signup';
 import { ScamMapComponent } from './scam-map/scam-map';
 import { TranslateComponent } from './translate/translate';
+import { CurrencyConverterComponent } from './currency/currency';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,9 @@ export const routes: Routes = [
   {
     path: 'translate',
     component: TranslateComponent
+  },
+  {
+    path: "currency", component:  CurrencyConverterComponent
   },
 
   // Optional fallback (recommended)

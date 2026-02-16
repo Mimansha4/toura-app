@@ -44,15 +44,16 @@
 
       <div class="output-wrapper">
 
-  <div *ngIf="loading && !translatedText" class="spinner"></div>
+  <!-- <div *ngIf="loading" class="spinner"></div>
+
 
   <textarea
-    *ngIf="translatedText"
-    rows="8"
-    class="fade-in"
-    [value]="translatedText"
-    readonly>
-  </textarea>
+  rows="8"
+  class="fade-in"
+  [value]="translatedText"
+  readonly>
+</textarea>
+
 
 </div>
 
@@ -67,5 +68,21 @@
     [disabled]="loading || !text.trim()">
     {{ loading ? 'Translating…' : 'Translate' }}
   </button>
-</div>
+</div> -->
+<div *ngIf="loading()" class="spinner"></div>
+
+<textarea
+  rows="8"
+  class="fade-in"
+  [value]="translatedText()"
+  readonly>
+</textarea>
+
+<button
+  class="translate-btn"
+  (click)="translate()"
+  [disabled]="loading() || !text.trim()">
+  {{ loading() ? 'Translating…' : 'Translate' }}
+</button>
+
 </div>
